@@ -9,7 +9,6 @@ import { useUser } from "@clerk/clerk-react";
 import { useMutation } from "convex/react";
 import { ChevronDown, ChevronRight, LucideIcon, MoreHorizontal, Plus, Trash } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { arch } from "os";
 import { toast } from "sonner";
 
 interface ItemProps {
@@ -21,7 +20,7 @@ interface ItemProps {
   level?: number;
   onExpand?: () => void;
   label: string;
-  onClick: () => void;
+  onClick?: () => void;
   icon: LucideIcon;
 }
 export const Item = ({
