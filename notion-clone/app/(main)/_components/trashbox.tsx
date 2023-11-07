@@ -7,7 +7,7 @@ import { useState } from "react";
 import { Id } from "@/convex/_generated/dataModel";
 import { toast } from "sonner";
 import { Spinner } from '../../../components/spinner';
-import { Search, Trash, Undo } from "lucide-react";
+import { File, Search, Trash, Undo } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import ConfirmModal from "@/components/modals/confirm-modal";
 
@@ -89,9 +89,19 @@ const TrashBox = () => {
                     onClick={() => setSearch(document._id)} 
                     className="text-sm rounded-sm w-full hover:bg-primary/5 flex items-center text-primary justify-between"
                 >
-                    <span className="truncate pl-2">
-                        {document.title}
-                    </span>
+                    <div className="items-center flex justify-between">
+                        {document.icon ? (
+                            <p className="ml-2 text-[18px]">
+                                {document.icon}
+                            </p>
+                        ): (
+                            <File className="mr-2 h-4 w-4" />
+                        )}
+                        <span className="truncate pl-2">
+                            {document.title}
+                        </span>
+                    </div>
+ 
                     <div className="flex items-center">
                         <div 
                             onClick={(e) => onRestore(e, document._id)}
