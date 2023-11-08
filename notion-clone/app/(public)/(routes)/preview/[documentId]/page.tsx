@@ -47,24 +47,26 @@ const DocumentIdPage = ({
           </div>
         </div>
       </div>
-    )
+    );
   }
 
   if (document === null) {
-    return <div>Not Found.</div>
+    return <div>Not found</div>
   }
-  return (
-    <div className="pb-40">
-        <Cover url={document.coverImage} />
-        <div className="md:max-w-3xl lg:max-w-4xl mx-auto">
-            <Toolbar initialData={document} />
-            <Editor
-              onChange={onChange}
-              initialContent={document.content}
-            />
-        </div>
-    </div>
-  )
-}
 
+  return ( 
+    <div className="pb-40">
+      <Cover preview url={document.coverImage} />
+      <div className="md:max-w-3xl lg:max-w-4xl mx-auto">
+        <Toolbar preview initialData={document} />
+        <Editor
+          editable={false}
+          onChange={onChange}
+          initialContent={document.content}
+        />
+      </div>
+    </div>
+  );
+}
+ 
 export default DocumentIdPage;
